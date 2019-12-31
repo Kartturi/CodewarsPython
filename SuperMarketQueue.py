@@ -13,6 +13,7 @@ import heapq
 # output
 # The function should return an integer, the total time required.
 
+
 #own implementation none
 
 #best solution method, from siebenschlaefer
