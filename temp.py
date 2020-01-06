@@ -1,13 +1,12 @@
-def isSolved(board):
-    vertList1 = []
-    vertList2 = []  
-    vertList3 = []
+n = 40
 
-    for i,line in
-    
+if n % 2 != 0:
+    print('Wierd')
+if n % 2 == 0 and  n <= 5 and n >= 2:
+    print('Not Wierd')
 
-board = [[1, 1, 1],
-         [0, 2, 2],
-         [0, 0, 0]]
+if n % 2 == 0 and  n <= 20 and n >= 6:
+    print('Wierd')
 
-print(isSolved(board))
+if n % 2 == 0 and n > 20:
+    print('Not Wierd')
