@@ -33,12 +33,26 @@
 
 # Detective, we count on you!
 
+#from itertools import product
+
+# ADJACENTS = ('08', '124', '2135', '326', '4157', '52468', '6359', '748', '85790', '968')
+
+# def get_pins(observed):
+#     return [''.join(p) for p in product(*(ADJACENTS[int(d)] for d in observed))]
+
+from itertools import combinations
+
 def get_pins(observed):
     possibleNums = []
     for num in observed:
         possibleNums = possibleNums + findLockValues(int(num))
-        print(possibleNums)
-    print(possibleNums)
+    
+    joined = ''.join([str(x) for x in possibleNums])
+    result = []
+    for item in list(set(combinations(joined,len(observed)))):
+        result.append(''.join(item))
+    return result
+
     
 
 def findLockValues(num):
@@ -52,14 +66,18 @@ def findLockValues(num):
             [7,8,9]]
     plan = {0: 'forward', 1:'both', 2:'back'}
     instructs = []
-    result = []
+    
     
     for i,lis in enumerate(lock):
         if num in lis:
             instructs = [plan[i],plan[lis.index(num)]]
     
-    result.append(num)
+    return computeValues(instructs,num)
 
+
+def computeValues(instructs,num):
+    result = []
+    result.append(num)
     if instructs[0] == 'forward':
         result.append(num + 3)
     elif instructs[0] == 'both':
@@ -81,4 +99,4 @@ def findLockValues(num):
 
 
 
-print(get_pins('1404'))
+print(get_pins('8'))
