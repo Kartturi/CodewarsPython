@@ -14,27 +14,29 @@
 
 # twoSum [1, 2, 3] 4 === (0, 2)
 
-#first solution
+# first solution
 def two_sum(numbers, target):
     newDict = {}
-    for i,num in enumerate(numbers):
+    for i, num in enumerate(numbers):
         newDict[num] = i
-    
-    for i,num in enumerate(numbers, start=0):
+
+    for i, num in enumerate(numbers, start=0):
         index = i
         findValue = target - num
         if findValue in newDict:
-            return (index, newDict[findValue])
+            return index, newDict[findValue]
 
 
-#improvement
+# improvement
 def two_sum2(numbers, target):
     newDict = {}
 
-    for i,num in enumerate(numbers):
-        left = target-num
+    for i, num in enumerate(numbers):
+        left = target - num
         if left in newDict:
-            return (newDict[left], i)
+            return newDict[left], i
         newDict[num] = i
-#print(two_sum([1,2,3], 4))
-print(two_sum([1234,5678,9012], 14690))
+
+
+# print(two_sum([1,2,3], 4))
+print(two_sum([1234, 5678, 9012], 14690))

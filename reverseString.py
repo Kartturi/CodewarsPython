@@ -4,4 +4,5 @@ def reverseString(str):
         reversed = char + reversed
     return reversed
 
-print(reverseString('abc'))
+
+print(reverseString('abcd'))
